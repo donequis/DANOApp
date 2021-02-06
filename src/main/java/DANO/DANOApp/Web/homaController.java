@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
+@RequestMapping("/video")
 public class homaController {
 
 
     @Autowired
     servicesHome servicesHomeVar;
 
-	@RequestMapping("/home")
+	@RequestMapping("/y")
 	public String home(@RequestParam("data") String itemid) {
 
          String html = servicesHomeVar.getYouTube(itemid);
         
-           // html = "<html><body>    <div id=\"yappa-comments-frame\" data-disable-ads=\"false\" style=\"margin:0;width:500;heigh:400\"></div>    <script type=\"text/javascript\" src=\"https://comments.yappaapp.com/embed/yappa-comments.js\"></script><a href=\"pagina2.html\">Prueba2</a></body></html>";
        
 
         return html;

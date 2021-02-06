@@ -15,12 +15,14 @@ public  class servicesHome {
 
 
     private String getYoutube(String id){
-        String codigoVideo;
+        String codigoVideo = id;
+        /*
         if(id.equals("1")){
             codigoVideo = "OckMmA0JQIY";
         }else{
             codigoVideo = "tpnhaQmZmiE";
         }
+        */
         return "<iframe width=\"800\" height=\"415\" src=\"https://www.youtube.com/embed/"+codigoVideo+"\" frameborder=\"0\"        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"        allowfullscreen></iframe></div>  ";
     }
 
