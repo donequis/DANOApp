@@ -6,19 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
-@RequestMapping("/video")
 public class homaController {
 
 
     @Autowired
     servicesHome servicesHomeVar;
 
-	@RequestMapping("/y")
+	@RequestMapping("/video")
 	public String home(@RequestParam("data") String itemid) {
 
-         String html = servicesHomeVar.getYouTube(itemid);
-        
-       
+         String html = servicesHomeVar.getVideo(itemid);
 
         return html;
 	}
