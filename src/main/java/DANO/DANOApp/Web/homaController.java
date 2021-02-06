@@ -15,16 +15,10 @@ public class homaController {
 	@RequestMapping("/home")
 	public String home(@RequestParam("data") String itemid) {
 
-        System.out.println("Prueba");
-        System.out.println(this.toString());
-
-        String html ="";
+         String html = servicesHomeVar.getYouTube(itemid);
         
-        if(itemid.equals("1")){
-            html = servicesHomeVar.getYouTube("1");
-        }else{
-            html = "<html><body>    <div id=\"yappa-comments-frame\" data-disable-ads=\"false\" style=\"margin:0;width:500;heigh:400\"></div>    <script type=\"text/javascript\" src=\"https://comments.yappaapp.com/embed/yappa-comments.js\"></script><a href=\"pagina2.html\">Prueba2</a></body></html>";
-        }
+           // html = "<html><body>    <div id=\"yappa-comments-frame\" data-disable-ads=\"false\" style=\"margin:0;width:500;heigh:400\"></div>    <script type=\"text/javascript\" src=\"https://comments.yappaapp.com/embed/yappa-comments.js\"></script><a href=\"pagina2.html\">Prueba2</a></body></html>";
+       
 
         return html;
 	}

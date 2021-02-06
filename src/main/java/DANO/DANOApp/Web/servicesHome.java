@@ -8,19 +8,28 @@ public  class servicesHome {
 
     public String getYouTube(String id){
 
-        String html =  getHeader()+getYoutube()+getYappa()+getBottom();
+        String html =  getHeader()+getYoutube(id)+getYappa()+getBottom();
 
         return html;
     }
 
 
-    private String getYoutube(){
-        return "<iframe width=\"800\" height=\"415\" src=\"https://www.youtube.com/embed/OckMmA0JQIY\" frameborder=\"0\"        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"        allowfullscreen></iframe></div>  ";
+    private String getYoutube(String id){
+        String codigoVideo;
+        if(id.equals("1")){
+            codigoVideo = "OckMmA0JQIY";
+        }else{
+            codigoVideo = "tpnhaQmZmiE";
+        }
+        return "<iframe width=\"800\" height=\"415\" src=\"https://www.youtube.com/embed/"+codigoVideo+"\" frameborder=\"0\"        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"        allowfullscreen></iframe></div>  ";
     }
 
     private String getHeader(){
             return "<head>  <title>Prueba App 2</title>  <meta charset=\"utf-8\">  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script></head><body><div class=\"container\" style=\"display:inline;text-align: center\"><div ><div>";
     }
+
+    
+
     private String getBottom(){
         return "</body></html>";
     }
