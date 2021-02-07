@@ -13,8 +13,9 @@ public  class servicesHome {
     }
     public String getVideo(String link){
 
-        String[] temporal = link.split("v=");
-        return armarYouTube(temporal[1].split("&")[0]);
+        //String[] temporal = link.split("v=");
+        //return armarYouTube(temporal[1].split("&")[0]);
+        return armarYouTube(link);
     }
 
     public String armarYouTube(String id){
