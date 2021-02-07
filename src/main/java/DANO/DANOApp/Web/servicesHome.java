@@ -7,7 +7,7 @@ public  class servicesHome {
     
     public String getHome(){
 
-        String html = getHeader("Sitio de Home") + armarInput() + getBottom();
+        String html = getHeader("Sitio de Home") +  getBottom();
 
         return html;
     }
@@ -34,7 +34,7 @@ public  class servicesHome {
     }
 
     private String getBottom(){
-        return "<button id=\"btnHome\">Home</button><script src=\"/js/jquery.js\"></script> <script src=\"/js/javascript.js\"></script> </body></html>";
+        return armarInput()+"<script src=\"/js/jquery.js\"></script> <script src=\"/js/javascript.js\"></script> </body></html>";
     }
 
     private String getYappa(){
@@ -44,7 +44,7 @@ public  class servicesHome {
 
     private String armarInput(){
 
-        return "<label for=\"name\">URL del video:</label> <input type=\"text\" id=\"url\" name=\"url\" required > <button id=\"btnEnviar\">Ver</button>";
+        return "<div style=\"text-align: center\"><label for=\"name\">URL del video:</label> <input type=\"text\" id=\"url\" name=\"url\" required > <button id=\"btnEnviar\">Ver</button><button id=\"btnHome\">Home</button></div>";
 
         //return "<label for=\"name\">URL del video:</label> <input type=\"text\" id=\"name\" name=\"name\" required >";        
     }
