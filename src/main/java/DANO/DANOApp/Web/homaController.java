@@ -13,11 +13,19 @@ public class homaController {
     servicesHome servicesHomeVar;
 
 	@RequestMapping("/video")
-	public String home(@RequestParam("data") String itemid) {
+	public String video(@RequestParam("data") String itemid) {
 
          String html = servicesHomeVar.getVideo(itemid);
 
         return html;
 	}
+
+    @RequestMapping("/home")
+    public String home() {
+
+        String html = servicesHomeVar.getHome();
+
+        return html;
+    }
 
 }
