@@ -1,5 +1,8 @@
 
-var urlLocal = "http://localhost:8080"
+//var urlLocal = "http://localhost:8080";
+
+var urlLocal = "https://danoapp.herokuapp.com/";
+
 
 $( document ).ready(function() {
 
