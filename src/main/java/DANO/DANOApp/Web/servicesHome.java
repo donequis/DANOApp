@@ -6,28 +6,23 @@ import org.springframework.stereotype.Service;
 public  class servicesHome {
     
     public String getHome(){
-
         String html = getHeader("Sitio de Home") +  getBottom();
-
         return html;
     }
     public String getVideo(String link){
-
-        //String[] temporal = link.split("v=");
-        //return armarYouTube(temporal[1].split("&")[0]);
         return armarYouTube(link);
     }
 
     public String armarYouTube(String id){
-
-        String html =  getHeader("Sitio de video")+getYoutube(id)+getYappa()+getBottom();
-
+        String html =  getHeader("Sitio de video")+getYoutube(id,"800","415")+getYappa()+getBottom();
         return html;
     }
 
-    private String getYoutube(String id){
+    private String getYoutube(String id,String width, String height){
         String codigoVideo = id;
-        return "<iframe width=\"800\" height=\"415\" src=\"https://www.youtube.com/embed/"+codigoVideo+"\" frameborder=\"0\"        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"        allowfullscreen></iframe></div>  ";
+        // width 800
+        // height 415
+        return "<iframe width=\" "+ width+" \" height=\" "+height+"\" src=\"https://www.youtube.com/embed/"+codigoVideo+"\" frameborder=\"0\"        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"        allowfullscreen></iframe></div>  ";
     }
 
     private String getHeader(String titulo){
@@ -44,10 +39,7 @@ public  class servicesHome {
     }
 
     private String armarInput(){
-
         return "<div style=\"text-align: center\"><label for=\"name\">URL del video:</label> <input type=\"text\" id=\"url\" name=\"url\" required > <button id=\"btnEnviar\">Ver</button><button id=\"btnHome\">Home</button></div>";
-
-        //return "<label for=\"name\">URL del video:</label> <input type=\"text\" id=\"name\" name=\"name\" required >";        
     }
 
 }
