@@ -32,6 +32,15 @@ public class homaController {
         return html;
 	}
 
+    @RequestMapping("/web")
+    public String web(@RequestParam("data") String url) {
+
+        String html = servicesHomeVar.getFrame(url);
+        linksServices.insertLink(url, new Date(System.currentTimeMillis()));
+
+        return html;
+    }
+
     @RequestMapping("/home")
     public String home() {
 
@@ -44,6 +53,24 @@ public class homaController {
     public String prueba(){
         List<Links> links = (List<Links>) linksServices.getAllFromLink();
         return links.toString();
+    }
+
+    @RequestMapping("/spAlbum")
+    public String spotifyAlbum(@RequestParam("data") String itemid) {
+
+        String html = servicesHomeVar.getSpotifyAlbum(itemid);
+        linksServices.insertLink(itemid, new Date(System.currentTimeMillis()));
+
+        return html;
+    }
+
+    @RequestMapping("/spSong")
+    public String spotifySong(@RequestParam("data") String itemid) {
+
+        String html = servicesHomeVar.getSpotifySong(itemid);
+        linksServices.insertLink(itemid, new Date(System.currentTimeMillis()));
+
+        return html;
     }
 
 }

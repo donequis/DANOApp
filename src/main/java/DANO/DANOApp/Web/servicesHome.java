@@ -5,17 +5,44 @@ import org.springframework.stereotype.Service;
 @Service
 public  class servicesHome {
     
+    /**********************************************
+     * METODOS PUBLICOS
+     **********************************************/
+
     public String getHome(){
         String html = getHeader("Sitio de Home") +  getBottom();
         return html;
     }
-    public String getVideo(String link){
-        return armarYouTube(link);
+    public String getVideo(String id){
+        return getHeader("Sitio de video") + armarYouTube(id) + getYappa() + getBottom();
     }
 
-    public String armarYouTube(String id){
-        String html =  getHeader("Sitio de video")+getYoutube(id,"800","415")+getYappa()+getBottom();
+    public String getFrame(String link){
+        String html = getHeader("Sitio de WebPage")+ armarIFrame(link);
         return html;
+    }
+
+    public String getSpotifyAlbum(String id) {
+        return getHeader("Sitio de Spotify Album") + armarSpotifyAlbum(id) + getYappa() + getBottom();
+    }
+
+    public String getSpotifySong(String id) {
+        return getHeader("Sitio de Spotify Song") + armarSpotifySong(id) + getYappa() + getBottom();
+    }
+    /**********************************************
+     * METODOS PRIVADOS
+    **********************************************/
+
+    private String armarYouTube(String id){
+        String html =  getYoutube(id,"800","415");
+        return html;
+    }
+
+    private String armarIFrame(String link){
+
+        return "<div><iframe width=\"100%\" height=\"86%\" src=\""+link+"\" frameborder=\"0\" onLoad=\"alert($(this).attr('src'));\" ></iframe></div>"
+                + getYappa() + getBottom();
+
     }
 
     private String getYoutube(String id,String width, String height){
@@ -39,7 +66,26 @@ public  class servicesHome {
     }
 
     private String armarInput(){
-        return "<div style=\"text-align: center\"><label for=\"name\">URL del video:</label> <input type=\"text\" id=\"url\" name=\"url\" required > <button id=\"btnEnviar\">Ver</button><button id=\"btnHome\">Home</button></div>";
+        return "<div style=\"text-align: center\"><label for=\"name\">URL del Link:</label> <input type=\"text\" id=\"url\" name=\"url\" required > <button id=\"btnEnviar\">Ver</button><button id=\"btnHome\">Home</button></div>";
     }
 
+
+    private String armarSpotifyAlbum(String id) {
+        String codigoAlbum = id;
+        // <iframe src="https://open.spotify.com/embed/album/6SSSF9Y6MiPdQoxqBptrR2"
+        // width="300" height="380" frameborder="0"
+        return "<iframe width=\" 300  \" height=\" 380 \" src=\"https://open.spotify.com/embed/album/"
+                + codigoAlbum
+                + "\" frameborder=\"0\"        allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>";
+    }
+
+    private String armarSpotifySong(String id) {
+        String codigoSong = id;
+        // <iframe src="https://open.spotify.com/embed/album/6SSSF9Y6MiPdQoxqBptrR2"
+        // width="300" height="380" frameborder="0"
+        return "<iframe width=\" 300  \" height=\" 380 \" src=\"https://open.spotify.com/embed/track/" + codigoSong
+                + "\" frameborder=\"0\"        allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>";
+    }
+
+    
 }

@@ -2,6 +2,11 @@ POSTGRES
 --------
 https://www.enterprisedb.com/download-postgresql-binaries
 
+GIT
+----
+https://desktop.github.com/
+https://git-scm.com/downloads
+
 JAVA
 -----
 https://www.java.com/es/download/
